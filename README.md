@@ -1,7 +1,7 @@
 
 configs for your modified adventurer 3 with BTT SKR 3 v3 mini mainboard.
 
-**These configs are in very much a "Prototype" state and are actively being worked on.**
+**These configs are in very much a "Prototype" state and are actively being worked on.** I would advise again using in thier current form.
 - This is intended for the Flashforge Adventurer 3 machine, but have / will have only been tested with pro version at this time.
 - In addition, **this requires some hardware modification**
 
