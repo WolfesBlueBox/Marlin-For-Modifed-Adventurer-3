@@ -24,4 +24,4 @@ Version|File Tree|Download|Notes
 ---|---|---|---
 bugfix-2.1.x|([Browse](//github.com/MarlinFirmware/Configurations/tree/bugfix-2.1.x))|([Download ZIP](//github.com/MarlinFirmware/Configurations/archive/bugfix-2.1.x.zip))|Contains unpublished features under development.
 
-**Looking for something more finished?** or something that reuses as much original parts as humanely possible? **Check out the klipperventurer project.**
+**Looking for something more finished?** or something that reuses as much original parts as humanely possible? **Check out the klipperventurer project instead.**
