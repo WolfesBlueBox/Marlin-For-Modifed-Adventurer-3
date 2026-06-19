@@ -1967,7 +1967,7 @@
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS 200 //X_BED_SIZE WF
+#define X_MAX_POS 200 //X_BED_SIZE WF use the full range of x and y movement here.
 #define Y_MAX_POS 300 //Y_BED_SIZE WF
 #define Z_MAX_POS 280  // mm
 //#define I_MIN_POS 0
@@ -2176,7 +2176,7 @@
  *   of other systems. UBL also includes integrated Mesh Generation, Mesh
  *   Validation and Mesh Editing systems.
  *
- * - MESH_BED_LEVELING
+ * - MESH_BED_LEVELING  WF
  *   Probe a grid manually
  *   The result is a mesh, suitable for large or uneven beds. (See BILINEAR.)
  *   For machines without a probe, Mesh Bed Leveling provides a method to perform
@@ -2187,7 +2187,7 @@
 //#define AUTO_BED_LEVELING_LINEAR
 //#define AUTO_BED_LEVELING_BILINEAR
 //#define AUTO_BED_LEVELING_UBL
-//#define MESH_BED_LEVELING
+#define MESH_BED_LEVELING  //WF
 
 /**
  * Commands to execute at the start of G29 probing,
@@ -2223,11 +2223,11 @@
  * Turn on with the command 'M111 S32'.
  * NOTE: Requires a lot of flash!
  */
-//#define DEBUG_LEVELING_FEATURE
+#define DEBUG_LEVELING_FEATURE //WF
 
 #if ANY(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL, PROBE_MANUALLY)
   // Set a height for the start of manual adjustment
-  #define MANUAL_PROBE_START_Z 0.2  // (mm) Comment out to use the last-measured height
+  #define MANUAL_PROBE_START_Z  5 // (mm) Comment out to use the last-measured height WF
 #endif
 
 #if ANY(MESH_BED_LEVELING, AUTO_BED_LEVELING_BILINEAR, AUTO_BED_LEVELING_UBL)
@@ -2354,12 +2354,12 @@
  * Add a bed leveling sub-menu for ABL or MBL.
  * Include a guided procedure if manual probing is enabled.
  */
-//#define LCD_BED_LEVELING
+#define LCD_BED_LEVELING //WF
 
 #if ENABLED(LCD_BED_LEVELING)
   #define MESH_EDIT_Z_STEP  0.025 // (mm) Step size while manually probing Z axis.
   #define LCD_PROBE_Z_RANGE 4     // (mm) Z Range centered on Z_MIN_POS for LCD Z adjustment
-  //#define MESH_EDIT_MENU        // Add a menu to edit mesh points
+  #define MESH_EDIT_MENU        // Add a menu to edit mesh points //WF
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
@@ -2400,7 +2400,7 @@
 // @section homing
 
 // The center of the bed is at (X=0, Y=0)
-//#define BED_CENTER_AT_0_0
+//#define BED_CENTER_AT_0_0 WF
 
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
@@ -2430,7 +2430,7 @@
 #endif
 
 // Homing speeds (linear=mm/min, rotational=°/min)
-#define HOMING_FEEDRATE_MM_M { (33*60), (33*60), (2*60) } // WF
+#define HOMING_FEEDRATE_MM_M { (33*60), (33*60), (2*60) } // WF  speed at 2000 when using M210
 
 // Edit homing feedrates with M210 and MarlinUI menu items
 #define EDITABLE_HOMING_FEEDRATE //WF
@@ -2705,7 +2705,7 @@
  *
  * View the current statistics with M78.
  */
-//#define PRINTCOUNTER
+#define PRINTCOUNTER //WF
 #if ENABLED(PRINTCOUNTER)
   #define PRINTCOUNTER_SAVE_INTERVAL 60 // (minutes) EEPROM save interval during print. A value of 0 will save stats at end of print.
 #endif
@@ -2878,7 +2878,7 @@
 //
 // Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
 //
-//#define INDIVIDUAL_AXIS_HOMING_MENU
+#define INDIVIDUAL_AXIS_HOMING_MENU //WF
 //#define INDIVIDUAL_AXIS_HOMING_SUBMENU
 
 //
@@ -2909,7 +2909,7 @@
 // A sequence of tones to play at startup, in pairs of tone (Hz), duration (ms).
 // Silence in-between tones.
 //
-//#define STARTUP_TUNE { 698, 300, 0, 50, 523, 50, 0, 25, 494, 50, 0, 25, 523, 100, 0, 50, 554, 300, 0, 100, 523, 300 }
+#define STARTUP_TUNE { 698, 300, 0, 50, 523, 50, 0, 25, 494, 50, 0, 25, 523, 100, 0, 50, 554, 300, 0, 100, 523, 300 } //WF
 
 //=============================================================================
 //======================== LCD / Controller Selection =========================
@@ -3207,7 +3207,7 @@
 //
 // Connect to EXP1 on RAMPS and compatible boards.
 //
-#define CR10_STOCKDISPLAY  // WF
+#define CR10_STOCKDISPLAY  // WF allowing use with any ender 3 style display with encoder wheel, including sv06 display.
 
 //
 // Ender-2 OEM display, a variant of the MKS_MINI_12864
@@ -3636,7 +3636,7 @@
 
 // Set number of user-controlled fans. Disable to use all board-defined fans.
 // :[1,2,3,4,5,6,7,8]
-#define NUM_M106_FANS 1 // WF
+#define NUM_M106_FANS 1 // WF  part cooling fan, uses fan port 2
 
 /**
  * Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
